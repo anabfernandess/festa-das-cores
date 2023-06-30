@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sorteio de Cores</title>
+  <h1>&#127881  Festinha das cores da Ju. &#127881</h1>
+  <p>Abaixo você vai sortear uma cor maneira </br>e preparar o bolso pra comprar as coisinhas nas cores que tirou.</p>
+  <style>
+    body {
+      background: #FFFFFF url("imagem/pride_background_5.jpg") no-repeat center top fixed;
+      background-size: 1500px 1000px;
+      background-color: #d0fa2a;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgb(243, 4, 131);
+    }
+    
+    .background{
+        width: 500;
+        height: 205;
+    }
+
+    h1 {
+      color: #000000;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    h1 {
+        color: rgb(0, 0, 0);
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    p{
+        text-align: center;
+        font-family: cursive;
+        color: rgb(0, 0, 0);
+    }
+
+    .color-box {
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .color-box:hover {
+      cursor: pointer;
+    
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .gif {
+      margin-top: 10px;
+      width: 120px;
+      height: 120px;
+      display: none; /*Ocultar o gif inicialmente*/
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sorteio de Cores</h1>
+    <div id="colorBox" class="color-box"></div>
+    <div id="message" class="message"></div>
+    <img id="gif" class="gif" src="https://thumbs.gfycat.com/FearlessVibrantCats-size_restricted.gif" alt="Gif Animado">
+    <button onclick="pickColor()">Tenta a sorte aí :) </button>
+  </div>
+  <div class="background">
+  </div>
+
+  <script>
+    var colors = ["#000000", "#00008B", "#008000", "#8B4513", "#FF1493", "#FF0000", "#FFA500", "#FFFF00", "#FFFAFA"]; // Adicione mais cores aqui
+
+
+    
+    function pickColor() {
+      var colorBox = document.getElementById("colorBox");
+      var message = document.getElementById("message");
+      var gif = document.getElementById("gif");
+
+      if (colors.length === 0) {
+        colorBox.style.backgroundColor = "#f2f2f2";
+        message.textContent = "Todas as cores foram sorteadas!";
+        gif.style.display = "none";
+        return;
+      }
+
+      var randomIndex = Math.floor(Math.random() * colors.length);
+      var selectedColor = colors[randomIndex];
+
+      colorBox.style.backgroundColor =
+      colors.splice(randomIndex, 1);
+
+      var name = "Parabéns, "; // Substitua "Fulano" pelo nome do sorteado
+
+      message.textContent = name + "sua cor é essa! Agora corre pra comprar as coisas! " 
+      gif.style.display = "block";
+    }
+    
+    
+  </script>
+</body>
+</html>
